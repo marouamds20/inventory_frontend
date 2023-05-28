@@ -8,8 +8,13 @@ import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
+import { ProductComponent } from 'app/pages/products/product.component';
+import { AddProductComponent } from 'app/pages/products/add/add.product.component';
+
 
 export const AdminLayoutRoutes: Routes = [
+    { path: 'product',        component: ProductComponent},
+    { path: 'product/add',    component: AddProductComponent},
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TableComponent },
