@@ -4,24 +4,56 @@
         <div class="card-body ">
           <div class="row">
             <div class="ml-3">
-                <button type="button" class="btn btn-primary" (click)="addProduct()">Ajouter produit</button>
+                <button type="button" class="btn btn-primary" (click)="refreshPage()">Liste Produit</button>
             </div>
-            <input type="text" name="code">
-            <input type="text" name="sku">
-            <div class="col-md-3 px-1">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" placeholder="name" value="michael23">
-              </div>
-            </div>
-            <input type="text" name="name">
-            <input type="text" name="description">
-            <input type="text" name="quantite">
-            <input type="text" name="price">
-            <input type="text" name="categorie">
-            <input type="date" name="dateExp">
           </div>
         </div>
       </div>
+      
     </div>
 </div>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card card-stats">
+      <div class="card-body ">
+          <form>
+            <div class="mb-3">
+              <label for="code" class="form-label">Code</label>
+              <input type="text" class="form-control" id="code" [(ngModel)]="code" name="code" required>
+            </div>
+            <div class="mb-3">
+              <label for="sku" class="form-label">SKU</label>
+              <input type="text" class="form-control" id="sku" [(ngModel)]="sku" name="sku" required>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>
+            </div>
+            <div class="mb-3 form-check">
+              <label for="quantite" class="form-label">Quanité</label>
+              <input type="number" class="form-control" id="quantite" [(ngModel)]="quantite" name="quantite" required>
+            </div>
+            <div class="mb-3 form-check">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" class="form-control" id="price" [(ngModel)]="price" name="price" required>
+            </div>
+            <div class="mb-3 form-check">
+              <label for="tva" class="form-label">TVA</label>
+              <input type="number" class="form-control" id="tva" [(ngModel)]="tva" name="tva" required>
+            </div>
+            <div class="mb-3 form-check">
+              <label for="date_expiration" class="form-label">Date d'experation</label>
+              <input type="date" class="form-control" id="date_expiration" [(ngModel)]="date_expiration" name="date_expiration" required>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="save()">Submit</button>
+          </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+

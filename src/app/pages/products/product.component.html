@@ -30,48 +30,55 @@
                     <th>
                         Price
                     </th>
-                    <th>
-                        Categorie
-                    </th>
+                    
                     <th>
                         TVA
                     </th>
                     <th>
                         Date d'experation
                     </th>
+                    <th>
+                      Date creation
+                  </th>
+                  <th>
+                    Date modification
+                </th>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr *ngFor="let product of products; let i = index">
+                      <td>
+                        {{product.id}}
+                      </td>
                         <td>
-                            maroua
+                            {{product.code}}
                         </td>
                         <td>
-                            algeria
+                            {{product.sku}}
                         </td>
                         <td>
-                            boumerdes
+                            {{product.name}}
                         </td>
                         <td>
-                            1000000
+                            {{product.description}}
                         </td>
                         <td>
-                            1000000
+                            {{product.quantite}}
                         </td>
                         <td>
-                            1000000
+                            {{product.price}}
                         </td>
                         <td>
-                            1000000
+                            {{product.tva}}
                         </td>
                         <td>
-                            1000000
+                            {{product.date_expiration}}
                         </td>
                         <td>
-                            1000000
+                            {{product.created_at}}
                         </td>
                         <td>
-                            1000000
-                        </td>
+                          {{product.updated_at}}
+                      </td>
                   </tr>
                 </tbody>
                 </table>

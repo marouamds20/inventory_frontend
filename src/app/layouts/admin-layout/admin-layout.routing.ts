@@ -10,11 +10,14 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { ProductComponent } from 'app/pages/products/product.component';
 import { AddProductComponent } from 'app/pages/products/add/add.product.component';
+import { OrderComponent }         from '../../pages/orders/order.component';
+import { Component } from '@angular/core';
 
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'product',        component: ProductComponent},
     { path: 'product/add',    component: AddProductComponent},
+    { path: 'order',          component: OrderComponent},
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TableComponent },
