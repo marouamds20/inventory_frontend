@@ -17,7 +17,8 @@ import { AddProductComponent }         from '../../pages/products/add/add.produc
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent }         from '../../pages/products/product.component';
-import { OrderComponent }         from '../../pages/orders/orders.component';
+import { OrderComponent }         from '../../pages/orders/order.component';
+import { AddOrderComponent }         from '../../pages/orders/add/add.order.component';
 
 
 
@@ -38,6 +39,7 @@ import { OrderComponent }         from '../../pages/orders/orders.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    AddOrderComponent,
     AddProductComponent,
     ProductComponent,
     OrderComponent 
