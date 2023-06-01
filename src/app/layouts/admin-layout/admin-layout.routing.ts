@@ -13,11 +13,14 @@ import { AddProductComponent } from 'app/pages/products/add/add.product.componen
 import { OrderComponent }         from '../../pages/orders/order.component';
 import { AddOrderComponent }         from '../../pages/orders/add/add.order.component';
 import { Component } from '@angular/core';
+import { EditProductComponent } from 'app/pages/products/edit/edit.product.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'product',        component: ProductComponent},
     { path: 'product/add',    component: AddProductComponent},
+    { path: 'product/edit/:id',    component: EditProductComponent},
     { path: 'order',          component: OrderComponent},
     { path: 'order/add',          component: AddOrderComponent},
     { path: 'dashboard',      component: DashboardComponent },

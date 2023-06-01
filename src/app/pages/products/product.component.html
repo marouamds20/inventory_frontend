@@ -43,6 +43,9 @@
                   <th>
                     Date modification
                 </th>
+                <th>
+                  Action 
+                </th>
                   </thead>
                   <tbody>
                     <tr *ngFor="let product of products; let i = index">
@@ -78,6 +81,10 @@
                         </td>
                         <td>
                           {{product.updated_at}}
+                      </td>
+                      <td>
+                        <button (click)="editProduct(product.id)">Edit</button>
+                        <button (click)="deleteProduct(product.id)">Delete</button>
                       </td>
                   </tr>
                 </tbody>

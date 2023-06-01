@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'add-product-cmp',
+    selector: 'edit-product-cmp',
     moduleId: module.id,
-    templateUrl: 'add.product.component.html'
+    templateUrl: 'edit.product.component.html'
 })
 
-export class AddProductComponent implements OnInit{
+export class EditProductComponent implements OnInit{
     code = "";
     sku = "";
     name = "";
@@ -17,8 +18,9 @@ export class AddProductComponent implements OnInit{
     price = 0;
     tva = 0;
     date_expiration = "";
+    id = "";
 
-    constructor(private backend:HttpClient, private router: Router){
+    constructor(private backend:HttpClient, private router: Router, private activeroot:ActivatedRoute){
 
     }
 
@@ -29,7 +31,21 @@ export class AddProductComponent implements OnInit{
       }
       
     ngOnInit(){
-    
+      this.id = this.activeroot.snapshot.paramMap.get('id');
+      this.backend.get("http://127.0.0.1:8000/api/get_produit_byId/"+this.id).subscribe((data:any)=>
+      {
+        console.log(data);
+        this.code = data.code;
+        this.sku = data.sku;
+        this.name = data.name;
+        this.description = data.description;
+        this.quantite = data.quantite;
+        this.price = data.price;
+        this.tva = data.tva;
+        this.date_expiration = data.date_expiration;
+      }
+      );
+
     }
 
     addProduct(){
@@ -46,7 +62,7 @@ export class AddProductComponent implements OnInit{
            tva : this.tva,
           date_expiration : this.date_expiration
         }
-        this.backend.post("http://127.0.0.1:8000/api/create_produit", product).subscribe((data)=>{
+        this.backend.put("http://127.0.0.1:8000/api/update_produit/"+this.id, product).subscribe((data)=>{
           console.log(data)
           this.router.navigateByUrl("product");
       });

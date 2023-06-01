@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent }         from '../../pages/products/product.component';
 import { OrderComponent }         from '../../pages/orders/order.component';
 import { AddOrderComponent }         from '../../pages/orders/add/add.order.component';
-
+import { EditProductComponent }         from '../../pages/products/edit/edit.product.component';
 
 
 @NgModule({
@@ -31,6 +31,7 @@ import { AddOrderComponent }         from '../../pages/orders/add/add.order.comp
     HttpClientModule
   ],
   declarations: [
+    
     DashboardComponent,
     UserComponent,
     TableComponent,
@@ -42,7 +43,8 @@ import { AddOrderComponent }         from '../../pages/orders/add/add.order.comp
     AddOrderComponent,
     AddProductComponent,
     ProductComponent,
-    OrderComponent 
+    OrderComponent,
+    EditProductComponent
   ]
 })
 
