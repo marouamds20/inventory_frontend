@@ -26,5 +26,22 @@ export class OrderComponent implements OnInit{
         this.router.navigateByUrl("order/add");
     }
 
+    editOrder(id){
+        console.log(id);
+        this.router.navigateByUrl("order/edit/"+id);
+    }
+
+    deleteOrder(id){
+        if (confirm("are you sure ?") == true) {
+            this.backend.delete("http://127.0.0.1:8000/api/delete_order/"+id).subscribe((data)=>
+        {
+            console.log(data)
+            window.location.reload();
+            // tva date creation date modification description 
+        });
+        }
+        
+    }
+
 
 }

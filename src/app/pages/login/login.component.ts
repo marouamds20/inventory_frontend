@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+
+
 @Component({
     selector: 'login-cmp',
     moduleId: module.id,
@@ -13,6 +15,8 @@ export class LoginComponent implements OnInit{
     user = '';
     email = '';
     password = '';
+    
+
 
     constructor(private backend:HttpClient, private router: Router){
     }

@@ -12,7 +12,6 @@ import { TypographyComponent }      from '../../pages/typography/typography.comp
 import { IconsComponent }           from '../../pages/icons/icons.component';
 import { MapsComponent }            from '../../pages/maps/maps.component';
 import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
-import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
 import { AddProductComponent }         from '../../pages/products/add/add.product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +19,10 @@ import { ProductComponent }         from '../../pages/products/product.component
 import { OrderComponent }         from '../../pages/orders/order.component';
 import { AddOrderComponent }         from '../../pages/orders/add/add.order.component';
 import { EditProductComponent }         from '../../pages/products/edit/edit.product.component';
+import { CategorieComponent }         from '../../pages/categories/categorie.component';
+import { AddCategorieComponent }         from '../../pages/categories/add/add.categorie.component';
+import { EditCategorieComponent }         from '../../pages/categories/edit/edit.categorie.component';
+import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.component';
 
 
 @NgModule({
@@ -35,7 +38,6 @@ import { EditProductComponent }         from '../../pages/products/edit/edit.pro
     DashboardComponent,
     UserComponent,
     TableComponent,
-    UpgradeComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
@@ -44,7 +46,11 @@ import { EditProductComponent }         from '../../pages/products/edit/edit.pro
     AddProductComponent,
     ProductComponent,
     OrderComponent,
-    EditProductComponent
+    EditProductComponent,
+    CategorieComponent,
+    AddCategorieComponent,
+    EditCategorieComponent,
+    EditOrderComponent
   ]
 })
 

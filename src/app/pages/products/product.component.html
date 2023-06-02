@@ -22,9 +22,6 @@
                       Name
                     </th>
                     <th>
-                        Description
-                    </th>
-                    <th>
                         Quantité
                     </th>
                     <th>
@@ -32,17 +29,8 @@
                     </th>
                     
                     <th>
-                        TVA
-                    </th>
-                    <th>
                         Date d'experation
                     </th>
-                    <th>
-                      Date creation
-                  </th>
-                  <th>
-                    Date modification
-                </th>
                 <th>
                   Action 
                 </th>
@@ -62,29 +50,25 @@
                             {{product.name}}
                         </td>
                         <td>
-                            {{product.description}}
-                        </td>
-                        <td>
                             {{product.quantite}}
                         </td>
                         <td>
                             {{product.price}}
                         </td>
                         <td>
-                            {{product.tva}}
-                        </td>
-                        <td>
-                            {{product.date_expiration}}
-                        </td>
-                        <td>
-                            {{product.created_at}}
-                        </td>
-                        <td>
-                          {{product.updated_at}}
+                          {{product.date_expiration}}
                       </td>
                       <td>
-                        <button (click)="editProduct(product.id)">Edit</button>
-                        <button (click)="deleteProduct(product.id)">Delete</button>
+                          <!-- Call to action buttons -->
+                          <ul class="list-inline m-0">
+                              <li class="list-inline-item">
+                                  <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editProduct(product.id)"></i></button>
+                              </li>
+                              <li class="list-inline-item">
+                                  <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteProduct(product.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                              </li>
+                          </ul>
+                      
                       </td>
                   </tr>
                 </tbody>

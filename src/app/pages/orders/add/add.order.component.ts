@@ -34,9 +34,12 @@ export class AddOrderComponent implements OnInit{
         let order = {
             order_number  : this.order_number,
             totale : this.totale,
-            subTotale : this.subTotale,
+            subTotale : this.subTotale
         }
-        this.backend.post("http://127.0.0.1:8000/api/create_order", order).subscribe((data)=>console.log(data));
+        this.backend.post("http://127.0.0.1:8000/api/create_order", order).subscribe((data)=>{
+          console.log(data)
+          this.router.navigateByUrl("order");
+      });
     }
 
 
