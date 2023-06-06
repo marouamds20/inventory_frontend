@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 })
 
 export class AddProductComponent implements OnInit{
+    categories = {};
     code = "";
     sku = "";
     name = "";
     description = "";
+    categorie = "";
     quantite = 0;
     price = 0;
     tva = 0;
@@ -29,7 +31,11 @@ export class AddProductComponent implements OnInit{
       }
       
     ngOnInit(){
-    
+      this.backend.get("http://127.0.0.1:8000/api/select_all_categorie").subscribe((data)=>
+        {
+            this.categories = data;
+            console.log(data)
+        });
     }
 
     addProduct(){
@@ -41,6 +47,7 @@ export class AddProductComponent implements OnInit{
             sku : this.sku,
             name : this.name,
            description :  this.description,
+           category_id : this.categorie,
            quantite : this.quantite,
            price : this.price,
            tva : this.tva,

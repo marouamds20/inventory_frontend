@@ -33,13 +33,21 @@
               <label for="description" class="form-label">Description</label>
               <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>
             </div>
+            <div class="mb-3">
+              <label for="categorie" class="form-label">Catégorie</label>
+              <select class="form-control" id="categorie" [(ngModel)]="categorie" name="categorie" required>
+                <option *ngFor="let c of categories" [ngValue]="c.id">
+                  {{ c.name }}
+                </option>
+              </select>
+            </div>
             <div class="mb-3 form-check">
               <label for="quantite" class="form-label">Quanité</label>
-              <input type="number" class="form-control" id="quantite" [(ngModel)]="quantite" name="quantite" required>
+              <input type="number" min="1" class="form-control" id="quantite" [(ngModel)]="quantite" name="quantite" required>
             </div>
             <div class="mb-3 form-check">
               <label for="price" class="form-label">Price</label>
-              <input type="number" class="form-control" id="price" [(ngModel)]="price" name="price" required>
+              <input type="number" min="1" class="form-control" id="price" [(ngModel)]="price" name="price" required>
             </div>
             <div class="mb-3 form-check">
               <label for="tva" class="form-label">TVA</label>

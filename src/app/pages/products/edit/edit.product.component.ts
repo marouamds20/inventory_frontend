@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class EditProductComponent implements OnInit{
+  categories = {};
+  category_id = "";
     code = "";
     sku = "";
     name = "";
@@ -31,6 +33,11 @@ export class EditProductComponent implements OnInit{
       }
       
     ngOnInit(){
+      this.backend.get("http://127.0.0.1:8000/api/select_all_categorie").subscribe((data)=>
+        {
+            this.categories = data;
+            console.log(data)
+        });
       this.id = this.activeroot.snapshot.paramMap.get('id');
       this.backend.get("http://127.0.0.1:8000/api/get_produit_byId/"+this.id).subscribe((data:any)=>
       {
@@ -40,6 +47,7 @@ export class EditProductComponent implements OnInit{
         this.name = data.name;
         this.description = data.description;
         this.quantite = data.quantite;
+        this.category_id = data.category_id;
         this.price = data.price;
         this.tva = data.tva;
         this.date_expiration = data.date_expiration;
@@ -57,6 +65,7 @@ export class EditProductComponent implements OnInit{
             sku : this.sku,
             name : this.name,
            description :  this.description,
+           category_id : this.category_id,
            quantite : this.quantite,
            price : this.price,
            tva : this.tva,

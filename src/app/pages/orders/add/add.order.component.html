@@ -18,8 +18,64 @@
       <div class="card-body ">
           <form>
             <div class="mb-3">
+              <label for="product" class="form-label">Liste Produtit</label>
+              <select class="form-control" id="product" [(ngModel)]="product" name="product" (change)="addProduct()" required>
+                <option *ngFor="let product of products" [ngValue]="product" >
+                  {{ product.name }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
               <label for="order_number" class="form-label">Order number</label>
               <input type="text" class="form-control" id="order_number" [(ngModel)]="order_number" name="order_number" required>
+            </div>
+            <div class="mb-3">
+              <div class="table-responsive ml-3">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      name
+                    </th>
+                    <th>
+                      Price
+                    </th>
+                    <th>
+                      Quantité
+                    </th>
+                    <th>
+                      Totale
+                    </th>
+                   <th>
+                    Action
+                   </th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let prod of selectedProduct; let i = index">
+                      <td>
+                        {{prod.name}}
+                      </td>
+                        <td>
+                            {{prod.price}}
+                        </td>
+                        <td>
+                           <input type="number" [(ngModel)]="prod.quantiteSelected" (keyup)="quantiteChange(i)" name="quantite[{{i}}]">
+                        </td>
+                        <td>
+                          <input type="number"  [(ngModel)]="prod.totale" name="totale[{{i}}]">
+                        </td>
+                          <td>
+                            <!-- Call to action buttons -->
+                            <ul class="list-inline m-0">
+                                <li class="list-inline-item">
+                                    <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteProd(prod.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                </li>
+                            </ul>
+                        
+                        </td>
+                  </tr>
+                </tbody>
+                </table>
+            </div>
             </div>
             <div class="mb-3">
               <label for="totale" class="form-label">Total</label>
