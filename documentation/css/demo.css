@@ -3,7 +3,7 @@
 }
 
 .tim-white-buttons {
-  background-color: #777777;
+  background-color: #070707;
 }
 
 .typography-line {
@@ -16,7 +16,7 @@
 
 .typography-line span {
   bottom: 10px;
-  color: #c0c1c2;
+  color: #070707;
   display: block;
   font-weight: 400;
   font-size: 13px;
@@ -67,7 +67,7 @@
 }
 
 .demo-icons a {
-  color: #608CEE;
+  color: #760404;
   text-decoration: none;
 }
 
@@ -134,7 +134,7 @@
 .demo-icons ul input {
   display: inline-block;
   font-size: 1rem;
-  color: #999999;
+  color: #050404;
   -webkit-user-select: auto;
   -moz-user-select: auto;
   -ms-user-select: auto;
@@ -154,7 +154,7 @@
 
 .demo-icons ul p::selection,
 .demo-icons ul em::selection {
-  background: #608CEE;
+  background: #8f0101;
   color: #efefef;
 }
 

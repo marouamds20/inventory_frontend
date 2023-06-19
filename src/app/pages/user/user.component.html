@@ -2,12 +2,12 @@
   <div class="col-md-4">
     <div class="card card-user">
       <div class="image">
-        <img src="assets/img/damir-bosnjak.jpg" alt="...">
+        <img src="assets/img/1645032224707.jpg" alt="...">
       </div>
       <div class="card-body">
         <div class="author">
           <a href="#">
-            <img class="avatar border-gray" src="assets/img/mike.jpg" alt="...">
+            <img class="avatar border-gray" src="assets/img/Get the We Heart It app!.jpg" alt="...">
             <h5 class="title">Chet Faker</h5>
           </a>
         </div>
@@ -17,21 +17,15 @@
   <div class="col-md-8">
     <div class="card card-user">
       <div class="card-header">
-        <h5 class="card-title">Edit Profile</h5>
+        <h5 class="card-title">Profile</h5>
       </div>
       <div class="card-body">
         <form>
           <div class="row">
-              <div class="col-md-6 p-3">
+              <div class="col-md-11 p-2 ml-3">
                 <div class="form-group">
-                  <label>First Name</label>
+                  <label>Name</label>
                   <input type="text" class="form-control" placeholder="Company" value="Chet">
-                </div>
-              </div>
-              <div class="col-md-6 p-3">
-                <div class="form-group">
-                  <label>Last Name</label>
-                  <input type="text" class="form-control" placeholder="Last Name" value="Faker">
                 </div>
               </div>
           </div>
@@ -45,7 +39,7 @@
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+              <button type="submit" class="btn btn-primary btn-round">Logout</button>
             </div>
           </div>
         </form>
@@ -58,68 +52,50 @@
     <h4 class="card-title">Users</h4>
   </div>
   <div class="card-body">
-    <ul class="list-unstyled team-members">
-      <li>
-        <div class="row">
-          <div class="col-md-2 col-2">
-            <div class="avatar">
-              <img src="assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-            </div>
-          </div>
-          <div class="col-md-7 col-7">
-            DJ Khaled
-            <br />
-            <span class="text-muted">
-              <small>Offline</small>
-            </span>
-          </div>
-          <div class="col-md-3 col-3 text-right">
-            <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="row">
-          <div class="col-md-2 col-2">
-            <div class="avatar">
-              <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-            </div>
-          </div>
-          <div class="col-md-7 col-7">
-            Creative Tim
-            <br />
-            <span class="text-success">
-              <small>Available</small>
-            </span>
-          </div>
-          <div class="col-md-3 col-3 text-right">
-            <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="row">
-          <div class="col-md-2 col-2">
-            <div class="avatar">
-              <img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-            </div>
-          </div>
-          <div class="col-ms-7 col-7">
-            Flume
-            <br />
-            <span class="text-danger">
-              <small>Busy</small>
-            </span>
-          </div>
-          <div class="col-md-3 col-3 text-right">
-            <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-          </div>
-        </div>
-      </li>
-    </ul>
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Identifiant
+                </th>
+                <th>
+                  name
+                </th>
+                <th>
+                  Email
+                </th>
+                <th>
+                  Action
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; let i = index">
+                  <td>
+                       {{user.id}}
+                  </td>
+                    <td>
+                        {{user.name}}
+                    </td>
+                    <td>
+                      {{user.email}}
+                  </td>
+                  <td>
+                      <!-- Call to action buttons -->
+                      <ul class="list-inline m-0">
+                          <li class="list-inline-item">
+                              <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editUser(user.id)"></i></button>
+                          </li>
+                          <li class="list-inline-item">
+                              <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteUser(user.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                          </li>
+                      </ul>
+                  
+                  </td>
+              </tr>
+            </tbody>
+            </table>
     <div class="row">
       <div class="update ml-auto mr-auto">
-        <button type="submit" class="btn btn-primary btn-round">Add User</button>
+        <button type="submit" class="btn btn-primary btn-round" (click)="addUser()">Add User</button>
       </div>
   </div>
   </div>

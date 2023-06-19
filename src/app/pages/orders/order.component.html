@@ -10,9 +10,6 @@
                 <table class="table">
                   <thead class=" text-primary">
                     <th>
-                      Identifiant
-                    </th>
-                    <th>
                       Order number
                     </th>
                     <th>
@@ -27,9 +24,6 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let order of orders; let i = index">
-                      <td>
-                        {{order.id}}
-                      </td>
                         <td>
                             {{order.order_number}}
                         </td>
@@ -43,11 +37,14 @@
                             <!-- Call to action buttons -->
                             <ul class="list-inline m-0">
                                 <li class="list-inline-item">
-                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editOrder(order.id)"></i></button>
+                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editOrder(order.order_number)"></i></button>
                                 </li>
                                 <li class="list-inline-item">
-                                    <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteOrder(order.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteOrder(order.order_number)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                 </li>
+                                <li class="list-inline-item">
+                                  <button (click)="imprimer()"><i class="fa fa-print" aria-hidden="true"></i></button>
+                              </li>
                             </ul>
                         
                         </td>

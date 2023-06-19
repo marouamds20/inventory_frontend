@@ -7,6 +7,9 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { DashboardComponent }       from '../../pages/dashboard/dashboard.component';
 import { UserComponent }            from '../../pages/user/user.component';
+import { AddUserComponent }            from '../../pages/user/add/add.user.component';
+import { EditUserComponent }            from '../../pages/user/edit/edit.user.component';
+
 import { TableComponent }           from '../../pages/table/table.component';
 import { TypographyComponent }      from '../../pages/typography/typography.component';
 import { IconsComponent }           from '../../pages/icons/icons.component';
@@ -37,6 +40,8 @@ import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.c
     
     DashboardComponent,
     UserComponent,
+    AddUserComponent,
+    EditUserComponent,
     TableComponent,
     TypographyComponent,
     IconsComponent,

@@ -1,39 +1,91 @@
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <div class="card card-stats">
-        <div class="card-body ">
-          <div class="row">
-            <div class="ml-3">
-                <button type="button" class="btn btn-primary" (click)="refreshPage()">Liste Orders</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-</div>
-<div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card card-stats">
       <div class="card-body ">
-          <form>
-            <div class="mb-3">
-              <label for="order_number" class="form-label">Order number</label>
-              <input type="text" class="form-control" id="order_number" [(ngModel)]="order_number" name="order_number" required>
-            </div>
-            <div class="mb-3">
-              <label for="totale" class="form-label">Total</label>
-              <input type="text" class="form-control" id="totale" [(ngModel)]="totale" name="totale" required>
-            </div>
-            <div class="mb-3">
-              <label for="subTotale" class="form-label">Sub total</label>
-              <input type="text" class="form-control" id="subTotale" [(ngModel)]="subTotale" name="subTotale" required>
-            </div>
-            <button type="button" class="btn btn-primary" (click)="save()">Envoyer</button>
-          </form>
-        
+        <div class="row">
+          <div class="ml-3">
+              <button type="button" class="btn btn-primary" (click)="refreshPage()">Liste Order</button>
+          </div>
+        </div>
       </div>
+    </div>
+    
+  </div>
+</div>
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <div class="card card-stats">
+    <div class="card-body ">
+        <form>
+          <div class="mb-3">
+            <label for="product" class="form-label">Liste Produtit</label>
+            <select class="form-control" id="product" [(ngModel)]="product" name="product" (change)="addProduct()" required>
+              <option *ngFor="let product of products" [ngValue]="product" >
+                {{ product.name }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <div class="table-responsive ml-3">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    name
+                  </th>
+                  <th>
+                    Price
+                  </th>
+                  <th>
+                    Quantité
+                  </th>
+                  <th>
+                    Prix totale 
+                  </th>
+                 <th>
+                  Action
+                 </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prod of selectedProduct; let i = index">
+                    <td>
+                      {{prod.name}}
+                    </td>
+                      <td>
+                          {{prod.price}}
+                      </td>
+                      <td>
+                         <input type="number" [(ngModel)]="prod.quantiteSelected" (keyup)="quantiteChange(i)" name="quantite[{{i}}]">
+                      </td>
+                      <td>
+                        <input type="number"  [(ngModel)]="prod.totale" name="totale[{{i}}]">
+                      </td>
+                        <td>
+                          <!-- Call to action buttons -->
+                          <ul class="list-inline m-0">
+                              <li class="list-inline-item">
+                                  <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteProd(prod.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                              </li>
+                          </ul>
+                      
+                      </td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+          </div>
+          <div class="mb-3">
+            <label for="totale" class="form-label">Prix totale</label>
+            <input type="text" class="form-control" id="totale" [(ngModel)]="totale" name="totale" required>
+          </div>
+          <div class="mb-3">
+            <label for="subTotale" class="form-label">Sub total</label>
+            <input type="text" class="form-control" id="subTotale" [(ngModel)]="subTotale" name="subTotale" required>
+          </div>
+          
+          <button type="button" class="btn btn-primary" (click)="save()">Submit</button>
+        </form>
+      
     </div>
   </div>
 </div>
-
+</div>

@@ -25,15 +25,19 @@ export class OrderComponent implements OnInit{
    addOrder(){
         this.router.navigateByUrl("order/add");
     }
+    imprimer() {
+        window.print();
+      }
+      
 
-    editOrder(id){
-        console.log(id);
-        this.router.navigateByUrl("order/edit/"+id);
+    editOrder(order_number){
+        console.log(order_number);
+        this.router.navigateByUrl("order/edit/"+order_number);
     }
 
-    deleteOrder(id){
+    deleteOrder(order_number){
         if (confirm("are you sure ?") == true) {
-            this.backend.delete("http://127.0.0.1:8000/api/delete_order/"+id).subscribe((data)=>
+            this.backend.delete("http://127.0.0.1:8000/api/delete_order/"+order_number).subscribe((data)=>
         {
             console.log(data)
             window.location.reload();

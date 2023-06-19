@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { UserComponent } from '../../pages/user/user.component';
+import { AddUserComponent }            from '../../pages/user/add/add.user.component';
+import { EditUserComponent }            from '../../pages/user/edit/edit.user.component';
 import { TableComponent } from '../../pages/table/table.component';
 import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
@@ -32,6 +34,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'categorie/add',    component: AddCategorieComponent},
     { path: 'categorie/edit/:id',    component: EditCategorieComponent},
     { path: 'user',           component: UserComponent },
+    { path: 'user/add',           component: AddUserComponent },
+    { path: 'user/edit/:id',           component: EditUserComponent },
     { path: 'table',          component: TableComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },

@@ -14,6 +14,10 @@ export class EditOrderComponent implements OnInit{
   totale = 0;
   subTotale = 0;
   id = "";
+  selectedProduct = [];
+  order:any;
+  products = {};
+  product = {};
 
     constructor(private backend:HttpClient, private router: Router, private activeroot:ActivatedRoute){
 
@@ -26,31 +30,55 @@ export class EditOrderComponent implements OnInit{
       }
       
     ngOnInit(){
-      this.id = this.activeroot.snapshot.paramMap.get('id');
-      this.backend.get("http://127.0.0.1:8000/api/get_order_byId/"+this.id).subscribe((data:any)=>
-      {
-        console.log(data);
-        this.order_number = data.order_number;
-        this.totale = data.totale;
-        this.subTotale = data.subTotale;
-      }
-      );
+      this.id = this.activeroot.snapshot.paramMap.get('order_number');
+        this.backend.get("http://127.0.0.1:8000/api/get_order/" + this.id).subscribe((data) => {
+          this.order = data;
+      
+          // Remplir les détails de la commande
+          this.totale = this.order.totale;
+          this.subTotale = this.order.subTotale;
+          this.selectedProduct = this.order.selectedProduct;
+      
+          // Récupérer les produits disponibles
+          this.backend.get("http://127.0.0.1:8000/api/select_all_produit").subscribe((productsData) => {
+            this.products = productsData;
+          });
+        });
+      
 
+    }
+    addProduct(){
+      this.selectedProduct.push(this.product);
+      console.log(this.selectedProduct);
+    }
+    deleteProd(id){
+      console.log(id);
+    }
+    quantiteChange(index){
+      console.log(index);
+      let prod = this.selectedProduct[index];
+      prod.totale = prod.price * prod.quantiteSelected;
+      this.subTotale = 0;
+      this.totale = 0;
+      this.selectedProduct.map((item)=>{
+        this.subTotale = this.subTotale + (item.totale);
+        this.totale = this.totale + (item.totale) + ((item.totale * item.tva) / 100 );
+      })
     }
 
     addOrder(){
         
     }
     save(){
-        let order = {
-          order_number  : this.order_number,
-          totale : this.totale,
-          subTotale : this.subTotale
-        }
-        this.backend.put("http://127.0.0.1:8000/api/update_order/"+this.id, order).subscribe((data)=>{
-          console.log(data)
-          this.router.navigateByUrl("order");
-      });
+      let order = {
+        totale : this.totale,
+        subTotale : this.subTotale,
+        selectedProduct : this.selectedProduct
+    }
+    this.backend.post("http://127.0.0.1:8000/api/update_order"+this.order_number, order).subscribe((data)=>{
+      console.log(data)
+      this.router.navigateByUrl("order");
+  });
     }
 
 

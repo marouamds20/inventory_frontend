@@ -88,8 +88,8 @@
 .demo-icons body {
   font-size: 1.6rem;
   font-family: sans-serif;
-  color: #333333;
-  background: white;
+  color: #0b0a0a;
+  background: rgb(212, 130, 7);
 }
 
 .demo-icons a {
@@ -160,7 +160,7 @@
 .demo-icons ul input {
   display: inline-block;
   font-size: 1rem;
-  color: #999999;
+  color: #0b0b0b;
   -webkit-user-select: auto;
   -moz-user-select: auto;
   -ms-user-select: auto;

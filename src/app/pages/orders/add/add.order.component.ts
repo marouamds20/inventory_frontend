@@ -12,7 +12,6 @@ export class AddOrderComponent implements OnInit{
   product = {};
   products = {};
   selectedProduct = [];
-    order_number = 0;
     totale = 0;
     subTotale = 0;
 
@@ -58,7 +57,6 @@ export class AddOrderComponent implements OnInit{
     }
     save(){
         let order = {
-            order_number  : this.order_number,
             totale : this.totale,
             subTotale : this.subTotale,
             selectedProduct : this.selectedProduct

@@ -5,10 +5,9 @@
  * General styles
  */
  
- body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+ /*body, html {
+    
+    background-image: url("\Users\marou\Desktop\PFE\inventory_frontend\src\assets\img\1645032224707.jpg");
  
 }
 
@@ -29,14 +28,14 @@
 /*
  * Card component
  */
-.card {
-    background-color:#f4f3ef;
+/*.card {
+    background-color:#f0dcb3;
     /* just in case there no content*/
-    padding: 20px 25px 30px;
+   /* padding: 20px 25px 30px;
     margin: 0 auto 25px;
-    margin-top: 50px;
+    
     /* shadows and rounded borders */
-    -moz-border-radius: 2px;
+    /*-moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -57,7 +56,7 @@
 /*
  * Form styles
  */
-.profile-name-card {
+/*.profile-name-card {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -67,7 +66,7 @@
 
 .reauth-email {
     display: block;
-    color: #404040;
+    color: #0c0c0c;
     line-height: 2;
     margin-bottom: 10px;
     font-size: 14px;
@@ -110,9 +109,9 @@
 
 .btn.btn-signin {
     /*background-color: #4d90fe; */
-    background-color:#51cbce;
+    /*background-color:#e4890a;
     /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
-    padding: 0px;
+    /*padding: 0px;
     font-weight: 700;
     font-size: 14px;
     height: 36px;
@@ -129,15 +128,166 @@
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+    background-color: rgb(240, 102, 10);
 }
 
 .forgot-password {
-    color: rgb(104, 145, 162);
+    color: rgb(7, 7, 7);
 }
 
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
-    color: rgb(12, 97, 33);
+    color: rgb(11, 11, 11);
+} 
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+*{
+	overflow: hidden;
 }
+html, body, #app {
+	overflow: hidden;
+  }
+  
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.body{
+	overflow: hidden;
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(C:\Users\marou\Desktop\PFE\inventory_frontend\src\assets\img\téléchargement.jpg);
+	background-size: cover;
+	-webkit-filter: blur(4px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	/*z-index: 1;
+	opacity: 0.7;
+}
+.header{
+	position: absolute;
+	top: calc(50% - 60px);
+	left: calc(50% - 260px);
+	z-index: 2;
+	
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.header div span{
+	color: #8e0606 !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding-left: 50px;
+	z-index: 2;
+}
+
+.login input[type=email]{
+	width: 300px;
+	height: 35px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 300px;
+	height: 35px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login button{
+	width: 300px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #cd0a0a;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=button]:hover{
+	opacity: 0.8;
+}
+
+.login input[type=button]:active{
+	opacity: 0.6;
+}
+
+.login input[type=email]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=button]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+*/
+
+
