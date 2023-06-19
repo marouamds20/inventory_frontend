@@ -15,6 +15,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
+import { AuthGuardService } from 'app/shared/services/authguard';
 @NgModule({
   
   declarations: [
@@ -36,7 +37,7 @@ import { HttpClientModule } from "@angular/common/http";
     FixedPluginModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

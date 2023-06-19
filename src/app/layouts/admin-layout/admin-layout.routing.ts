@@ -23,6 +23,7 @@ import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.c
 
 
 export const AdminLayoutRoutes: Routes = [
+    { path: '',        component: ProductComponent},
     { path: 'product',        component: ProductComponent},
     { path: 'product/add',    component: AddProductComponent},
     { path: 'product/edit/:id',    component: EditProductComponent},
