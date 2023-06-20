@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 
 export class AddCategorieComponent implements OnInit{
     name = "";
-
+    categories:any = [];
+    parent = "";
     constructor(private backend:HttpClient, private router: Router){
 
     }
@@ -21,8 +22,12 @@ export class AddCategorieComponent implements OnInit{
         });
       }
       
-    ngOnInit(){
-    
+      ngOnInit(){
+        this.backend.get("http://127.0.0.1:8000/api/select_all_categorie").subscribe((data)=>
+        {
+            this.categories = data;
+            console.log(data)
+        });
     }
 
     addCategorie(){
@@ -30,7 +35,8 @@ export class AddCategorieComponent implements OnInit{
     }
     save(){
         let categorie = {
-          name : this.name
+          name : this.name,
+          id_parent : this.parent,
         }
         this.backend.post("http://127.0.0.1:8000/api/create_categorie", categorie).subscribe((data)=>{
           console.log(data)

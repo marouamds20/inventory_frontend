@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'add-user-cmp',
+    selector: 'add-liste-cmp',
     moduleId: module.id,
-    templateUrl: 'add.user.component.html'
+    templateUrl: 'add.liste.component.html'
 })
 
-export class AddUserComponent implements OnInit{
+export class AddListeComponent implements OnInit{
     name = "";
     email = "";
     password = "";
@@ -17,7 +17,7 @@ export class AddUserComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/user', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/liste', { skipLocationChange: true }).then(() => {
           this.router.navigate([this.router.url]);
         });
       }
@@ -37,7 +37,7 @@ export class AddUserComponent implements OnInit{
         }
         this.backend.post("http://127.0.0.1:8000/api/create_User", user).subscribe((data)=>{
           console.log(data)
-          this.router.navigateByUrl("user");
+          this.router.navigateByUrl("liste");
       });
     }
 

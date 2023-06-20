@@ -18,6 +18,7 @@ export class CategorieComponent implements OnInit{
         this.backend.get("http://127.0.0.1:8000/api/select_all_categorie").subscribe((data)=>
         {
             this.categories = data;
+            this.categories = this.categories.filter((data)=>data.id_parent != 0);
             console.log(data)
         });
     }

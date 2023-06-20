@@ -43,7 +43,7 @@
                                     <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteOrder(order.order_number)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                 </li>
                                 <li class="list-inline-item">
-                                  <button (click)="imprimer()"><i class="fa fa-print" aria-hidden="true"></i></button>
+                                  <button (click)="imprimer(order.order_number)"><i class="fa fa-print" aria-hidden="true"></i></button>
                               </li>
                             </ul>
                         

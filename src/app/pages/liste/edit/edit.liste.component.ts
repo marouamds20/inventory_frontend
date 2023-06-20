@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'edit-user-cmp',
+    selector: 'edit-liste-cmp',
     moduleId: module.id,
-    templateUrl: 'edit.user.component.html'
+    templateUrl: 'edit.liste.component.html'
 })
 
-export class EditUserComponent implements OnInit{
+export class EditListeComponent implements OnInit{
     name = "";
     id = "";
     email = "";
@@ -19,7 +19,7 @@ export class EditUserComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/user', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/liste', { skipLocationChange: true }).then(() => {
           this.router.navigate([this.router.url]);
         });
       }
@@ -46,7 +46,7 @@ export class EditUserComponent implements OnInit{
         }
         this.backend.put("http://127.0.0.1:8000/api/update_User/"+this.id, user).subscribe((data)=>{
           console.log(data)
-          this.router.navigateByUrl("user");
+          this.router.navigateByUrl("liste");
       });
     }
 

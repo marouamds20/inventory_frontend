@@ -2,8 +2,9 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { UserComponent } from '../../pages/user/user.component';
-import { AddUserComponent }            from '../../pages/user/add/add.user.component';
-import { EditUserComponent }            from '../../pages/user/edit/edit.user.component';
+import { ListeComponent } from 'app/pages/liste/liste.component';
+import { AddListeComponent }            from '../../pages/liste/add/add.liste.component';
+import { EditListeComponent }            from '../../pages/liste/edit/edit.liste.component';
 import { TableComponent } from '../../pages/table/table.component';
 import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
@@ -22,6 +23,7 @@ import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.c
 
 
 
+
 export const AdminLayoutRoutes: Routes = [
     { path: '',        component: ProductComponent},
     { path: 'product',        component: ProductComponent},
@@ -29,14 +31,15 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'product/edit/:id',    component: EditProductComponent},
     { path: 'order',          component: OrderComponent},
     { path: 'order/add',          component: AddOrderComponent},
-    { path: 'order/edit/:id',    component: EditOrderComponent},
+    { path: 'order/edit/:order_number',    component: EditOrderComponent},
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'categorie',        component: CategorieComponent},
     { path: 'categorie/add',    component: AddCategorieComponent},
     { path: 'categorie/edit/:id',    component: EditCategorieComponent},
     { path: 'user',           component: UserComponent },
-    { path: 'user/add',           component: AddUserComponent },
-    { path: 'user/edit/:id',           component: EditUserComponent },
+    { path: 'liste',           component:ListeComponent },
+    { path: 'liste/add',           component: AddListeComponent },
+    { path: 'liste/edit/:id',           component: EditListeComponent },
     { path: 'table',          component: TableComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },

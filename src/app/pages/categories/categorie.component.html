@@ -13,7 +13,10 @@
                       Identifiant
                     </th>
                     <th>
-                      name
+                      Categorie
+                    </th>
+                    <th>
+                      Sub Categorie
                     </th>
                     <th>
                       Action
@@ -22,10 +25,13 @@
                   <tbody>
                     <tr *ngFor="let categorie of categories; let i = index">
                       <td>
-                           {{categorie.id}}
+                          {{categorie.id}}
                       </td>
+                      <td>
+                        {{categorie.categorie}}
+                    </td>
                         <td>
-                            {{categorie.name}}
+                            {{categorie.subcategorie}}
                         </td>
                       <td>
                           <!-- Call to action buttons -->

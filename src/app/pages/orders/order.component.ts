@@ -25,8 +25,8 @@ export class OrderComponent implements OnInit{
    addOrder(){
         this.router.navigateByUrl("order/add");
     }
-    imprimer() {
-        window.print();
+    imprimer(order_number) {
+        window.open("http://127.0.0.1:8000/api/pdf_order/"+order_number);
       }
       
 

@@ -28,16 +28,15 @@ export class EditOrderComponent implements OnInit{
           this.router.navigate([this.router.url]);
         });
       }
-      
+    
     ngOnInit(){
       this.id = this.activeroot.snapshot.paramMap.get('order_number');
-        this.backend.get("http://127.0.0.1:8000/api/get_order/" + this.id).subscribe((data) => {
-          this.order = data;
-      
+        this.backend.get("http://127.0.0.1:8000/api/get_order_byId/" + this.id).subscribe((data:any) => {
+          this.order = data.order;
           // Remplir les détails de la commande
           this.totale = this.order.totale;
           this.subTotale = this.order.subTotale;
-          this.selectedProduct = this.order.selectedProduct;
+          this.selectedProduct = data.products;
       
           // Récupérer les produits disponibles
           this.backend.get("http://127.0.0.1:8000/api/select_all_produit").subscribe((productsData) => {

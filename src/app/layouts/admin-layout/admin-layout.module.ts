@@ -7,8 +7,9 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { DashboardComponent }       from '../../pages/dashboard/dashboard.component';
 import { UserComponent }            from '../../pages/user/user.component';
-import { AddUserComponent }            from '../../pages/user/add/add.user.component';
-import { EditUserComponent }            from '../../pages/user/edit/edit.user.component';
+import { ListeComponent } from 'app/pages/liste/liste.component';
+import { AddListeComponent }            from '../../pages/liste/add/add.liste.component';
+import { EditListeComponent }            from '../../pages/liste/edit/edit.liste.component';
 
 import { TableComponent }           from '../../pages/table/table.component';
 import { TypographyComponent }      from '../../pages/typography/typography.component';
@@ -28,6 +29,7 @@ import { EditCategorieComponent }         from '../../pages/categories/edit/edit
 import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -40,8 +42,9 @@ import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.c
     
     DashboardComponent,
     UserComponent,
-    AddUserComponent,
-    EditUserComponent,
+    ListeComponent,
+    AddListeComponent,
+    EditListeComponent,
     TableComponent,
     TypographyComponent,
     IconsComponent,
