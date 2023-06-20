@@ -16,8 +16,9 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthGuardService } from 'app/shared/services/authguard';
+import { NotifService } from "./shared/services/notif.service";
 @NgModule({
-  
+
   declarations: [
     LoginComponent,
     AppComponent,
@@ -37,7 +38,7 @@ import { AuthGuardService } from 'app/shared/services/authguard';
     FixedPluginModule,
     FormsModule
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService ,NotifService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
