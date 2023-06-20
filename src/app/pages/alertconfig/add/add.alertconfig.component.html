@@ -4,7 +4,7 @@
         <div class="card-body ">
           <div class="row">
             <div class="ml-3">
-                <button type="button" class="btn btn-primary" (click)="refreshPage()">Liste Categories</button>
+                <button type="button" class="btn btn-primary" (click)="refreshPage()">Liste des Configurations</button>
             </div>
           </div>
         </div>
@@ -17,7 +17,7 @@
     <div class="card card-stats">
       <div class="card-body ">
           <form>
-            <label for="">Configuration des alertes</label>
+            <label for="">Produit</label>
             <select class="form-control" id="id_product" [(ngModel)]="id_product" name="id_product" required>
               <option *ngFor="let product of products" [ngValue]="product.id" >
                 {{ product.name }}
