@@ -25,7 +25,7 @@ export class AddProductComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/product', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/product', { skipLocationChange: false}).then(() => {
           this.router.navigate([this.router.url]);
         });
       }

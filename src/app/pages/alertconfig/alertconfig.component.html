@@ -4,7 +4,7 @@
         <div class="card-body ">
           <div class="row">
             <div class="ml-3">
-                <button type="button" class="btn btn-primary" (click)="addCategorie()">Ajouter Categorie</button>
+                <button type="button" class="btn btn-primary" (click)="addalertconfig()">Ajouter configuration alerte</button>
             </div>
             <div class="table-responsive ml-3">
                 <table class="table">
@@ -13,34 +13,40 @@
                       Identifiant
                     </th>
                     <th>
-                      Catégorie mère
+                      Produit
                     </th>
                     <th>
-                      Catégorie Fille
+                      Quantité minimale
+                    </th>
+                    <th>
+                      Duré d'exp
                     </th>
                     <th>
                       Action
                     </th>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let categorie of categories; let i = index">
+                    <tr *ngFor="let alertconfig of alertconfigs; let i = index">
                       <td>
-                          {{categorie.id}}
+                          {{alertconfig.id}}
                       </td>
                       <td>
-                        {{categorie.categorie}}
+                        {{alertconfig.name}}
+                    </td>
+                      <td>
+                        {{alertconfig.quantite_min}}
                     </td>
                         <td>
-                            {{categorie.subcategorie}}
+                            {{alertconfig.min_dure}}
                         </td>
                       <td>
                           <!-- Call to action buttons -->
                           <ul class="list-inline m-0">
                               <li class="list-inline-item">
-                                  <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editCategorie(categorie.id)"></i></button>
+                                  <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editalertconfig(alertconfig.id)"></i></button>
                               </li>
                               <li class="list-inline-item">
-                                  <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteCategorie(categorie.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                  <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deletealertconfig(alertconfig.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                               </li>
                           </ul>
                       

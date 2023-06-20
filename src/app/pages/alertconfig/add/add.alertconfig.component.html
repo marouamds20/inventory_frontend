@@ -17,18 +17,19 @@
     <div class="card card-stats">
       <div class="card-body ">
           <form>
-            <label for="">Parent Categorie</label>
-            <select class="form-control" id="parent" [(ngModel)]="parent" name="parent" required>
-              <option value="0" >
-                Catégorie Mère
-              </option>
-              <option *ngFor="let categorie of categories" [ngValue]="categorie.id" >
-                {{ categorie.name }}
+            <label for="">Configuration des alertes</label>
+            <select class="form-control" id="id_product" [(ngModel)]="id_product" name="id_product" required>
+              <option *ngFor="let product of products" [ngValue]="product.id" >
+                {{ product.name }}
               </option>
             </select>
             <div class="mb-3">
-              <label for="name" class="form-label">Nom</label>
-              <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>
+              <label for="name" class="form-label">Qunatité minimale</label>
+              <input type="text" class="form-control" id="quantite_min" [(ngModel)]="quantite_min" name="quantite_min" required>
+            </div>
+            <div class="mb-3">
+              <label for="min_dure" class="form-label">La duré d'expiration</label>
+              <input type="text" class="form-control" id="min_dure" [(ngModel)]="min_dure" name="min_dure" required>
             </div>
             <button type="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
           </form>
