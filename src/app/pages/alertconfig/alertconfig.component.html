@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="ml-3">
+                <button type="button" class="btn btn-primary" (click)="addalertconfig()">Ajouter configuration alerte</button>
+            </div>
+            <div class="table-responsive ml-3">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      Identifiant
+                    </th>
+                    <th>
+                      Produit
+                    </th>
+                    <th>
+                      Quantité minimale
+                    </th>
+                    <th>
+                      Duré d'exp
+                    </th>
+                    <th>
+                      Action
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let alertconfig of alertconfigs; let i = index">
+                      <td>
+                          {{alertconfig.id}}
+                      </td>
+                      <td>
+                        {{alertconfig.name}}
+                    </td>
+                      <td>
+                        {{alertconfig.quantite_min}}
+                    </td>
+                        <td>
+                            {{alertconfig.min_dure}}
+                        </td>
+                      <td>
+                          <!-- Call to action buttons -->
+                          <ul class="list-inline m-0">
+                              <li class="list-inline-item">
+                                  <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit" (click)="editalertconfig(alertconfig.id)"></i></button>
+                              </li>
+                              <li class="list-inline-item">
+                                  <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deletealertconfig(alertconfig.id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                              </li>
+                          </ul>
+                      
+                      </td>
+                  </tr>
+                </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

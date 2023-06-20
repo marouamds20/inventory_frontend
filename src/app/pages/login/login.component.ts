@@ -30,9 +30,12 @@ export class LoginComponent implements OnInit{
             password :this.password
         }
         this.backend.post("http://127.0.0.1:8000/api/login", user).subscribe((data)=>{
-          localStorage.setItem("user", JSON.stringify(data));
-          console.log(data)
-          this.router.navigateByUrl("product");
+            if(data != null){
+                localStorage.setItem("user", JSON.stringify(data));
+                console.log(data)
+                this.router.navigateByUrl("product");
+            }
+         
       });
     }
 }

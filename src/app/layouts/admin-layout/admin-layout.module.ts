@@ -27,6 +27,9 @@ import { CategorieComponent }         from '../../pages/categories/categorie.com
 import { AddCategorieComponent }         from '../../pages/categories/add/add.categorie.component';
 import { EditCategorieComponent }         from '../../pages/categories/edit/edit.categorie.component';
 import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.component';
+import { AlertconfigComponent }         from '../../pages/alertconfig/alertconfig.component';
+import { AddAlertconfigComponent }         from '../../pages/alertconfig/add/add.alertconfig.component';
+import { EditAlertconfigComponent }         from '../../pages/alertconfig/edit/edit.alertconfig.component';
 
 
 
@@ -58,7 +61,10 @@ import { EditOrderComponent }         from '../../pages/orders/edit/edit.order.c
     CategorieComponent,
     AddCategorieComponent,
     EditCategorieComponent,
-    EditOrderComponent
+    EditOrderComponent,
+    AlertconfigComponent,
+    AddAlertconfigComponent,
+    EditAlertconfigComponent,
   ]
 })
 

@@ -22,7 +22,7 @@ async function getRoute() {
                 { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
                 { path: '/user',          title: 'Profile',      icon:'nc-single-02',  class: '' },
                 { path: '/liste',          title: 'Utilisateurs',      icon:'nc-badge',  class: '' },
-
+                { path: '/alertconfig',          title: 'Alerte Config',      icon:'nc-badge',  class: '' },
             ]
 
         }

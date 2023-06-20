@@ -12,6 +12,7 @@ export class AddListeComponent implements OnInit{
     name = "";
     email = "";
     password = "";
+    role = "";
     constructor(private backend:HttpClient, private router: Router){
 
     }
@@ -33,7 +34,8 @@ export class AddListeComponent implements OnInit{
         let user = {
           name : this.name,
           email : this.email,
-          password : this.password
+          password : this.password,
+          role : this.role
         }
         this.backend.post("http://127.0.0.1:8000/api/create_User", user).subscribe((data)=>{
           console.log(data)
