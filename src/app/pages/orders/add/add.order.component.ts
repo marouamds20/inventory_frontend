@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NotifService } from 'app/shared/services/notif.service';
 
 @Component({
     selector: 'add-order-cmp',
@@ -15,7 +16,7 @@ export class AddOrderComponent implements OnInit{
     totale = 0;
     subTotale = 0;
 
-    constructor(private backend:HttpClient, private router: Router){
+    constructor(private backend:HttpClient, private router: Router , private notif:NotifService){
 
     }
 
@@ -24,7 +25,7 @@ export class AddOrderComponent implements OnInit{
           this.router.navigate([this.router.url]);
         });
       }
-      
+
       ngOnInit(){
         this.backend.get("http://127.0.0.1:8000/api/select_all_produit").subscribe((data)=>
         {
@@ -53,7 +54,7 @@ export class AddOrderComponent implements OnInit{
 
     addOrder(){
 
-        
+
     }
     save(){
         let order = {
@@ -62,9 +63,17 @@ export class AddOrderComponent implements OnInit{
             selectedProduct : this.selectedProduct
         }
         this.backend.post("http://127.0.0.1:8000/api/create_order", order).subscribe((data)=>{
-          console.log(data)
+          console.log(data);
+          this.notif._initNotif(data);
+
+
           this.router.navigateByUrl("order");
       });
+
+
+
+
+
     }
 
 

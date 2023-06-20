@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit{
               return this.listTitles[item].title;
           }
       }
-      return 'Produits';
+      return titlee.slice( 1 );
     }
     sidebarToggle() {
         if (this.sidebarVisible === false) {
