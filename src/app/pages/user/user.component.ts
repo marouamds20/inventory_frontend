@@ -13,9 +13,19 @@ export class UserComponent implements OnInit{
     constructor(private router:Router, private backend:HttpClient){
 
     }
-   
+
+    name = "";
+    email="";
+
     ngOnInit(){
-        
+      var user = JSON.parse(localStorage.getItem("user"));
+      this.name = user.name;
+      this.email = user.email;
+    }
+
+    logout(){
+      localStorage.removeItem("user");
+      this.router.navigateByUrl("login");
     }
 
 }
