@@ -8,7 +8,6 @@ import { EditListeComponent }            from '../../pages/liste/edit/edit.liste
 import { TableComponent } from '../../pages/table/table.component';
 import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 import { ProductComponent } from 'app/pages/products/product.component';
 import { AddProductComponent } from 'app/pages/products/add/add.product.component';
@@ -45,7 +44,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table',          component: TableComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'alertconfig',        component: AlertconfigComponent},
     { path: 'alertconfig/add',    component: AddAlertconfigComponent},

@@ -21,7 +21,7 @@ export class EditAlertconfigComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/alertconfig', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/alertconfig', { skipLocationChange: false }).then(() => {
           this.router.navigate([this.router.url]);
         });
       }

@@ -18,7 +18,7 @@ export class EditCategorieComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/categorie', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/categorie', { skipLocationChange: false }).then(() => {
           this.router.navigate([this.router.url]);
         });
       }

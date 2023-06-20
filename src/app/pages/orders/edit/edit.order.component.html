@@ -18,7 +18,7 @@
     <div class="card-body ">
         <form>
           <div class="mb-3">
-            <label for="product" class="form-label">Liste Produtit</label>
+            <label for="product" class="form-label">Liste Produits</label>
             <select class="form-control" id="product" [(ngModel)]="product" name="product" (change)="addProduct()" required>
               <option *ngFor="let product of products" [ngValue]="product" >
                 {{ product.name }}
@@ -30,16 +30,16 @@
               <table class="table">
                 <thead class=" text-primary">
                   <th>
-                    Name
+                    Nom
                   </th>
                   <th>
-                    Price
+                    Prix
                   </th>
                   <th>
                     Quantité
                   </th>
                   <th>
-                    Prix totale 
+                    Prix Totale 
                   </th>
                  <th>
                   Action
@@ -74,15 +74,15 @@
           </div>
           </div>
           <div class="mb-3">
-            <label for="totale" class="form-label">Prix totale</label>
+            <label for="totale" class="form-label">Prix Totale</label>
             <input type="text" class="form-control" id="totale" [(ngModel)]="totale" name="totale" required>
           </div>
           <div class="mb-3">
-            <label for="subTotale" class="form-label">Sub total</label>
+            <label for="subTotale" class="form-label">Prix Totale avec tva</label>
             <input type="text" class="form-control" id="subTotale" [(ngModel)]="subTotale" name="subTotale" required>
           </div>
           
-          <button type="button" class="btn btn-primary" (click)="save()">Submit</button>
+          <button type="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
         </form>
       
     </div>

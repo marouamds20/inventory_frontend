@@ -24,7 +24,7 @@ export class EditOrderComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/order', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/order', { skipLocationChange: false}).then(() => {
           this.router.navigate([this.router.url]);
         });
       }

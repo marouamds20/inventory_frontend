@@ -19,7 +19,7 @@ export class EditListeComponent implements OnInit{
     }
 
     refreshPage() {
-        this.router.navigateByUrl('/liste', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/liste', { skipLocationChange: false }).then(() => {
           this.router.navigate([this.router.url]);
         });
       }
