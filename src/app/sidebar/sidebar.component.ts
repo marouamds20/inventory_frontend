@@ -62,13 +62,16 @@ export class SidebarComponent implements OnInit {
     public menuItems: any[];
 
     ngOnInit() {
+
       this.notif.notifObservable$.subscribe((data)=>{
+        console.log("We are in SidbarComponenet : " , data);
+
           this.notifs = data == null ? "": data.length;
 
           getRoute(this.notifs).then((ROUTES)=>this.menuItems = ROUTES.filter(menuItem => menuItem));
 
       });
-        //getRoute().then((ROUTES)=>this.menuItems = ROUTES.filter(menuItem => menuItem));
+      this.notif.getNotifs();
 
     }
 }

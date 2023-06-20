@@ -64,8 +64,10 @@ export class AddOrderComponent implements OnInit{
         }
         this.backend.post("http://127.0.0.1:8000/api/create_order", order).subscribe((data)=>{
           console.log(data);
-          this.notif._initNotif(data);
-
+          this.backend.get("http://127.0.0.1:8000/api/select_all_alert").subscribe((notifs)=>{
+            console.log(notifs);
+          this.notif._initNotif(notifs);
+        });
 
           this.router.navigateByUrl("order");
       });
