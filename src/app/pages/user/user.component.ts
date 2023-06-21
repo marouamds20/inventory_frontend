@@ -16,17 +16,20 @@ export class UserComponent implements OnInit{
 
     name = "";
     email="";
-
+    role = "";
     ngOnInit(){
       var user = JSON.parse(localStorage.getItem("user"));
       this.name = user.name;
       this.email = user.email;
+      this.role = user.role;
     }
 
     logout(){
-      localStorage.removeItem("user");
-      this.router.navigateByUrl("login");
+      if (confirm("are you sure ?") == true) {
+        localStorage.removeItem("user");
+        this.router.navigateByUrl("login");
     }
-
+    
+}
 }
 

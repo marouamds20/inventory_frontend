@@ -41,33 +41,53 @@ export class AddProductComponent implements OnInit{
     addProduct(){
 
     }
-    save(){
-        let product = {
-            code : this.code,
-            sku : this.sku,
-            name : this.name,
-           description :  this.description,
-           category_id : this.categorie,
-           quantite : this.quantite,
-           price : this.price,
-           tva : this.tva,
-          date_expiration : this.date_expiration
-        }
-        this.backend.post("http://127.0.0.1:8000/api/create_produit", product).subscribe((data)=>{
-          console.log(data);
-
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(()=>{
-            this.router.navigateByUrl("product");
-          });
-
+    save() {
+      // Check if any field is empty
+      if (
+        this.code === '' ||
+        this.sku === '' ||
+        this.name === '' ||
+        this.description === '' ||
+        this.categorie === '' ||
+        this.quantite === 0 ||
+        this.price === 0 ||
+        this.tva === 0 ||
+        this.date_expiration === ''
+      ) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please fill in all the fields',
+        });
+        return; // Stop execution if any field is empty
+      }
+    
+      let product = {
+        code: this.code,
+        sku: this.sku,
+        name: this.name,
+        description: this.description,
+        category_id: this.categorie,
+        quantite: this.quantite,
+        price: this.price,
+        tva: this.tva,
+        date_expiration: this.date_expiration,
+      };
+    
+      this.backend.post('http://127.0.0.1:8000/api/create_produit', product).subscribe((data) => {
+        console.log(data);
+    
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          this.router.navigateByUrl('product');
+        });
       });
     }
-
+    
 
 }

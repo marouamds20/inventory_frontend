@@ -35,6 +35,9 @@ export class LoginComponent implements OnInit{
                 console.log(data)
                 this.router.navigateByUrl("product");
             }
+            else{
+                alert("utilisateur n'existe pas");
+            }
          
       });
     }

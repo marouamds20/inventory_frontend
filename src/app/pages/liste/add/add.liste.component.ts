@@ -31,6 +31,19 @@ export class AddListeComponent implements OnInit{
         
     }
     save(){
+      if (
+        this.name === '' ||
+        this.email === '' ||
+        this.password === '' ||
+        this.role === ''
+      ) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please fill in all the fields',
+        });
+        return; // Stop execution if any field is empty
+      }
         let user = {
           name : this.name,
           email : this.email,

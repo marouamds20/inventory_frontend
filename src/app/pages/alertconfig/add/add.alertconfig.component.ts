@@ -36,6 +36,18 @@ export class AddAlertconfigComponent implements OnInit{
         
     }
     save(){
+      if (
+        this.quantite_min ==='' ||
+        this.min_dure === '' ||
+        this.id_product === ''
+      ) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please fill in all the fields',
+        });
+        return; // Stop execution if any field is empty
+      }
         let alertconfig = {
           quantite_min : this.quantite_min,
           min_dure : this.min_dure,

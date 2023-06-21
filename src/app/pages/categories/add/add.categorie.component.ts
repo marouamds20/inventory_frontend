@@ -34,6 +34,17 @@ export class AddCategorieComponent implements OnInit{
         
     }
     save(){
+      if (
+        this.name === '' ||
+        this.parent === ''
+      ) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please fill in all the fields',
+        });
+        return; // Stop execution if any field is empty
+      }
         let categorie = {
           name : this.name,
           id_parent : this.parent,

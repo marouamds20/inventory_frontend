@@ -38,7 +38,16 @@ export class AddOrderComponent implements OnInit{
       console.log(this.selectedProduct);
     }
     deleteProd(id){
-      console.log(id);
+      if (confirm("are you sure ?") == true) {
+        this.backend.delete("http://127.0.0.1:8000/api/delete_produit/"+id).subscribe((data)=>
+    {
+        console.log(data)
+        window.location.reload();
+        // tva date creation date modification description 
+
+        
+    });
+    }
     }
     quantiteChange(index){
       console.log(index);
@@ -57,6 +66,14 @@ export class AddOrderComponent implements OnInit{
 
     }
     save(){
+      if (!this.totale || !this.subTotale || this.selectedProduct.length === 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please fill in all the fields',
+        });
+        return;
+      }
         let order = {
             totale : this.totale,
             subTotale : this.subTotale,
@@ -76,7 +93,7 @@ export class AddOrderComponent implements OnInit{
             icon: 'success',
             title: 'Your work has been saved',
             showConfirmButton: false,
-            timer: 1500
+            timer: 10000
           }).then(()=>{
             this.router.navigateByUrl("order");
           });

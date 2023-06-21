@@ -32,11 +32,15 @@ async function getRoute(notifs) {
 
         }
         else{
+          var cal ="";
+          if (notifs>0){
+            var cal = "text-red";
+          }
             ROUTES = [
-                { path: '/product',       title: 'Produit',           icon:'nc-bag-16',     class:'active'  },
+                { path: '/product',       title: 'Produit',           icon:'nc-bag-16',     class:''  },
                 { path: '/categorie',     title: 'Categories',         icon:'nc-tile-56',       class: '' },
                 //{ path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
-                { path: '/notifications', title: 'Alertes',     icon:'nc-bell-55',    class: '' },
+                { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: cal },
                 { path: '/user',          title: 'Profile',      icon:'nc-single-02',  class: '' },
             ]
         }

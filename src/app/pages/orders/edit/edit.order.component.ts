@@ -51,7 +51,16 @@ export class EditOrderComponent implements OnInit{
       console.log(this.selectedProduct);
     }
     deleteProd(id){
-      console.log(id);
+      if (confirm("are you sure ?") == true) {
+        this.backend.delete("http://127.0.0.1:8000/api/delete_produit/"+id).subscribe((data)=>
+    {
+        console.log(data)
+        window.location.reload();
+        // tva date creation date modification description 
+
+        
+    });
+    }
     }
     quantiteChange(index){
       console.log(index);
