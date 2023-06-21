@@ -85,9 +85,6 @@ export class EditOrderComponent implements OnInit{
     }
     this.backend.put("http://127.0.0.1:8000/api/update_order/"+this.id, order).subscribe((data)=>{
       console.log(data)
-
-      this.router.navigateByUrl("order");
-
       Swal.fire({
         position: 'top-end',
         icon: 'success',
