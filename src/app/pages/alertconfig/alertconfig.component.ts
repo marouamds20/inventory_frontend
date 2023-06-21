@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import Swal from 'sweetalert2';
 @Component({
     selector: 'alertconfig-cmp',
     moduleId: module.id,

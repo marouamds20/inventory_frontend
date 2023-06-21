@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
     selector: 'edit-liste-cmp',
     moduleId: module.id,
@@ -47,6 +47,17 @@ export class EditListeComponent implements OnInit{
         this.backend.put("http://127.0.0.1:8000/api/update_User/"+this.id, user).subscribe((data)=>{
           console.log(data)
           this.router.navigateByUrl("liste");
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(()=>{
+            this.router.navigateByUrl("liste");
+          });
+
       });
     }
 

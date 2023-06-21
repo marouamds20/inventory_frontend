@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
     selector: 'edit-product-cmp',
     moduleId: module.id,
@@ -75,6 +75,18 @@ export class EditProductComponent implements OnInit{
         this.backend.put("http://127.0.0.1:8000/api/update_produit/"+this.id, product).subscribe((data)=>{
           console.log(data)
           this.router.navigateByUrl("product");
+
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(()=>{
+            this.router.navigateByUrl("product");
+          });
+
       });
     }
 

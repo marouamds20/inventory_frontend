@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NotifService } from 'app/shared/services/notif.service';
-
+import Swal from 'sweetalert2';
 @Component({
     selector: 'add-order-cmp',
     moduleId: module.id,
@@ -70,6 +70,17 @@ export class AddOrderComponent implements OnInit{
         });
 
           this.router.navigateByUrl("order");
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(()=>{
+            this.router.navigateByUrl("order");
+          });
+
       });
 
 

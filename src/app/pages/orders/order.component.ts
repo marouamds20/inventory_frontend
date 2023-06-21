@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import Swal from 'sweetalert2';
 @Component({
     selector: 'order-cmp',
     moduleId: module.id,
@@ -42,6 +42,8 @@ export class OrderComponent implements OnInit{
             console.log(data)
             window.location.reload();
             // tva date creation date modification description 
+
+            
         });
         }
         
