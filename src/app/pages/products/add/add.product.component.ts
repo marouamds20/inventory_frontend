@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
     selector: 'add-product-cmp',
     moduleId: module.id,
@@ -29,7 +29,7 @@ export class AddProductComponent implements OnInit{
           this.router.navigate([this.router.url]);
         });
       }
-      
+
     ngOnInit(){
       this.backend.get("http://127.0.0.1:8000/api/select_all_categorie").subscribe((data)=>
         {
@@ -39,7 +39,7 @@ export class AddProductComponent implements OnInit{
     }
 
     addProduct(){
-        
+
     }
     save(){
         let product = {
@@ -54,8 +54,18 @@ export class AddProductComponent implements OnInit{
           date_expiration : this.date_expiration
         }
         this.backend.post("http://127.0.0.1:8000/api/create_produit", product).subscribe((data)=>{
-          console.log(data)
-          this.router.navigateByUrl("product");
+          console.log(data);
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(()=>{
+            this.router.navigateByUrl("product");
+          });
+
       });
     }
 
