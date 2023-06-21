@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { NotifService } from 'app/shared/services/notif.service';
 @Component({
     selector: 'edit-order-cmp',
     moduleId: module.id,
@@ -19,7 +20,7 @@ export class EditOrderComponent implements OnInit{
   products = {};
   product = {};
 
-    constructor(private backend:HttpClient, private router: Router, private activeroot:ActivatedRoute){
+    constructor(private backend:HttpClient, private router: Router, private activeroot:ActivatedRoute, private notif:NotifService){
 
     }
 
@@ -84,7 +85,11 @@ export class EditOrderComponent implements OnInit{
         selectedProduct : this.selectedProduct
     }
     this.backend.put("http://127.0.0.1:8000/api/update_order/"+this.id, order).subscribe((data)=>{
-      console.log(data)
+      console.log(data);
+          this.backend.get("http://127.0.0.1:8000/api/select_all_alert").subscribe((notifs)=>{
+            console.log(notifs);
+          this.notif._initNotif(notifs);
+        });
       Swal.fire({
         position: 'top-end',
         icon: 'success',
