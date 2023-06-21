@@ -93,7 +93,7 @@ export class AddOrderComponent implements OnInit{
             icon: 'success',
             title: 'Your work has been saved',
             showConfirmButton: false,
-            timer: 10000
+            timer: 1500
           }).then(()=>{
             this.router.navigateByUrl("order");
           });
