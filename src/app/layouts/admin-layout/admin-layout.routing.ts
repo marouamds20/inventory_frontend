@@ -26,7 +26,7 @@ import { EditAlertconfigComponent }         from '../../pages/alertconfig/edit/e
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: '',        component: ProductComponent},
+    { path: '',        redirectTo: 'product'},
     { path: 'product',        component: ProductComponent},
     { path: 'product/add',    component: AddProductComponent},
     { path: 'product/edit/:id',    component: EditProductComponent},

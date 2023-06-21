@@ -21,7 +21,7 @@ async function getRoute(notifs) {
             ROUTES = [
                 { path: '/product',       title: 'Produit',           icon:'nc-bag-16',     class:''   },
                 { path: '/order',         title: 'Commande',          icon:'nc-single-copy-04',     class:''  },
-                { path: '/dashboard',     title: 'Tableau de bord',   icon:'nc-chart-pie-36',       class: '' },
+                //{ path: '/dashboard',     title: 'Tableau de bord',   icon:'nc-chart-pie-36',       class: '' },
                 { path: '/categorie',     title: 'Categories',         icon:'nc-tile-56',       class: '' },
                 //{ path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
                 { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: cal },
@@ -33,7 +33,7 @@ async function getRoute(notifs) {
         }
         else{
             ROUTES = [
-                { path: '/product',       title: 'Produit',           icon:'nc-bag-16',     class:''  },
+                { path: '/product',       title: 'Produit',           icon:'nc-bag-16',     class:'active'  },
                 { path: '/categorie',     title: 'Categories',         icon:'nc-tile-56',       class: '' },
                 //{ path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
                 { path: '/notifications', title: 'Alertes',     icon:'nc-bell-55',    class: '' },
