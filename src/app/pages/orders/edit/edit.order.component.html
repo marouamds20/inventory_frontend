@@ -1,3 +1,10 @@
+<style>
+  .no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</style>
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card card-stats">
@@ -54,10 +61,10 @@
                           {{prod.price}}
                       </td>
                       <td>
-                         <input type="number" [(ngModel)]="prod.quantiteSelected" (keyup)="quantiteChange(i)" name="quantite[{{i}}]">
+                         <input type="number" [(ngModel)]="prod.quantiteSelected" (keyup)="quantiteChange(i)" name="quantite[{{i}}]" class="no-spinner">
                       </td>
                       <td>
-                        <input type="number"  [(ngModel)]="prod.totale" name="totale[{{i}}]">
+                        <input type="number"  [(ngModel)]="prod.totale" name="totale[{{i}}]" class="no-spinner">
                       </td>
                         <td>
                           <!-- Call to action buttons -->
@@ -73,15 +80,15 @@
               </table>
           </div>
           </div>
+         
           <div class="mb-3">
-            <label for="totale" class="form-label">Prix Totale</label>
-            <input type="text" class="form-control" id="totale" [(ngModel)]="totale" name="totale" required>
-          </div>
-          <div class="mb-3">
-            <label for="subTotale" class="form-label">Prix Totale avec tva</label>
+            <label for="subTotale" class="form-label">Prix Totale</label>
             <input type="text" class="form-control" id="subTotale" [(ngModel)]="subTotale" name="subTotale" required>
           </div>
-          
+          <div class="mb-3">
+            <label for="totale" class="form-label">Prix Totale avec TVA</label>
+            <input type="text" class="form-control" id="totale" [(ngModel)]="totale" name="totale" required>
+          </div>
           <button type="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
         </form>
       

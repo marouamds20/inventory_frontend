@@ -1,3 +1,10 @@
+<style>
+  .no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</style>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card card-stats">
@@ -43,15 +50,15 @@
             </div>
             <div class="mb-3 form-check">
               <label for="quantite" class="form-label">Quanité</label>
-              <input type="number" min="1" class="form-control" id="quantite" [(ngModel)]="quantite" name="quantite" required>
+              <input type="number" min="1" class="form-control no-spinner" id="quantite" [(ngModel)]="quantite" name="quantite" required>
             </div>
             <div class="mb-3 form-check">
               <label for="price" class="form-label">Prix</label>
-              <input type="number" min="1" class="form-control" id="price" [(ngModel)]="price" name="price" required>
+              <input type="number" min="1" class="form-control no-spinner" id="price" [(ngModel)]="price" name="price" required>
             </div>
             <div class="mb-3 form-check">
               <label for="tva" class="form-label">TVA</label>
-              <input type="number" class="form-control" id="tva" [(ngModel)]="tva" name="tva" required>
+              <input type="number" class="form-control no-spinner" id="tva" [(ngModel)]="tva" name="tva" required>
             </div>
             <div class="mb-3 form-check">
               <label for="date_expiration" class="form-label">Date d'experation</label>

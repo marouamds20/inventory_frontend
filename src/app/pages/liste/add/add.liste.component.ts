@@ -50,21 +50,40 @@ export class AddListeComponent implements OnInit{
           password : this.password,
           role : this.role
         }
-        this.backend.post("http://127.0.0.1:8000/api/create_User", user).subscribe((data)=>{
-          console.log(data)
-          this.router.navigateByUrl("liste");
+        this.backend.post('http://127.0.0.1:8000/api/create_User', user).subscribe((data) => {
+    console.log(data);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      this.router.navigateByUrl('user');
+    });
+  },
+  (error) => {
+    if (error.status === 400 && error.error.message === 'user already exists') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'user already exists',
+      }).then(() => {
+        window.location.reload();
+    });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'user already exists',
+      }).then(() => {
+        window.location.reload();
+    });
+      
+    }
 
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(()=>{
-            this.router.navigateByUrl("liste");
-          });
-
-      });
+  }
+);
     }
 
 
