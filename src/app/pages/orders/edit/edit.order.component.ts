@@ -59,6 +59,14 @@ export class EditOrderComponent implements OnInit{
     quantiteChange(index){
       console.log(index);
       let prod = this.selectedProduct[index];
+      if (prod.quantiteSelected > prod.quantite) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'La quantité sélectionnée est supérieure à la quantité en stock',
+        });
+        return; // Arrêter l'exécution de la fonction
+      }
       prod.totale = prod.price * prod.quantiteSelected;
       this.subTotale = 0;
       this.totale = 0;
