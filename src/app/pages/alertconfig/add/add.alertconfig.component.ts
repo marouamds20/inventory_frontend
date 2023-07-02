@@ -35,9 +35,9 @@ export class AddAlertconfigComponent implements OnInit{
     addalertconfig(){
         
     }
-    save(){
+    save() {
       if (
-        this.quantite_min ==='' ||
+        this.quantite_min === '' ||
         this.min_dure === '' ||
         this.id_product === ''
       ) {
@@ -48,27 +48,40 @@ export class AddAlertconfigComponent implements OnInit{
         });
         return; // Stop execution if any field is empty
       }
-        let alertconfig = {
-          quantite_min : this.quantite_min,
-          min_dure : this.min_dure,
-          id_product : this.id_product,
-        }
-        this.backend.post("http://127.0.0.1:8000/api/create_alertconfig", alertconfig).subscribe((data)=>{
-          console.log(data)
-          this.router.navigateByUrl("alertconfig");
-
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(()=>{
-            this.router.navigateByUrl("alertconfig");
-          });
-
-      });
+    
+      let alertconfig = {
+        quantite_min: this.quantite_min,
+        min_dure: this.min_dure,
+        id_product: this.id_product,
+      };
+    
+      this.backend
+        .post('http://127.0.0.1:8000/api/create_alertconfig', alertconfig)
+        .subscribe(
+          (data) => {
+            console.log(data);
+            this.router.navigateByUrl('alertconfig');
+    
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
+              this.router.navigateByUrl('alertconfig');
+            });
+          },
+          (error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: error.error.error, // Display the error message returned from the backend
+            });
+          }
+        );
     }
+    
 
 
 }
